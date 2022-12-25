@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_find_my_stuff/core.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:page_transition/page_transition.dart';
 
 import 'module/Animations/fade_animations.dart';
 
 void main() => runApp(MaterialApp(
-    theme: new ThemeData(scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255)),
+    // ignore: unnecessary_new
+    theme: new ThemeData(
+        scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255)),
     debugShowCheckedModeBanner: false,
     home: HomePage()));
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -29,7 +35,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     _scaleController =
@@ -144,16 +149,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   FadeAnimation(
                       1,
                       Text(
-                        "Welcome",
+                        "Selamat Datang",
                         style: TextStyle(color: Colors.white, fontSize: 50),
                       )),
                   SizedBox(
-                    height: 15,
+                    height: 30,
                   ),
                   FadeAnimation(
                       1.3,
                       Text(
-                        "We promis that you'll have the most \nfuss-free time with us ever.",
+                        "cari barangmu disini\ndengan lebih mudah",
                         style: TextStyle(
                             color: Colors.white.withOpacity(.7),
                             height: 1.4,
