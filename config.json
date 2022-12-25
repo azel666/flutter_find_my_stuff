@@ -1,0 +1,8 @@
+{
+    "modules": [
+      "dashboard",
+      "add_data",
+      "detail",
+      "report"
+    ]
+}
