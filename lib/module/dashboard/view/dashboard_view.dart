@@ -5,8 +5,8 @@ import 'package:flutter_find_my_stuff/core.dart';
 import 'package:flutter_find_my_stuff/module/dashboard/widget/list_horizontal.dart';
 import '../controller/dashboard_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
-import './home.dart';
-import './list.dart';
+import '../widget/btn_home.dart';
+import '../widget/btn_list.dart';
 import '../widget/my_bottom_navbar.dart';
 
 class DashboardView extends StatefulWidget {
