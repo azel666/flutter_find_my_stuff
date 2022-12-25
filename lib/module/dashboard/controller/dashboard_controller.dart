@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_find_my_stuff/state_util.dart';
 import '../view/dashboard_view.dart';
+import '../view/home.dart';
+import '../view/list.dart';
 
-class DashboardController extends State<DashboardView> implements MvcController {
+class DashboardController extends State<DashboardView>
+    implements MvcController {
   static late DashboardController instance;
   late DashboardView view;
+
+  int _selectedIndex = 0;
+
+  void item_on_selected(index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   void initState() {
