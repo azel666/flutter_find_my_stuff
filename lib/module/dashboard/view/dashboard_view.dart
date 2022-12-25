@@ -5,12 +5,22 @@ import 'package:flutter_find_my_stuff/core.dart';
 import 'package:flutter_find_my_stuff/module/dashboard/widget/list_horizontal.dart';
 import '../controller/dashboard_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
+import './home.dart';
+import './list.dart';
+import '../widget/my_bottom_navbar.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({Key? key}) : super(key: key);
 
+  @override
+  State<DashboardView> createState() => DashboardController();
+
   Widget build(context, DashboardController controller) {
     controller.view = this;
+
+    final _selectedIndexNotifier = ValueNotifier<int>(0);
+
+    final _pageController = PageController();
 
     return Scaffold(
       appBar: AppBar(
@@ -18,93 +28,31 @@ class DashboardView extends StatefulWidget {
         elevation: 0,
         title: Align(
           alignment: Alignment.centerRight,
-          child: new IconTheme(
-            data: new IconThemeData(color: Colors.blueGrey),
-            child: new Icon(Icons.search),
+          child: IconTheme(
+            data: IconThemeData(color: Colors.blueGrey),
+            child: Icon(Icons.search),
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Selamat Datang Di",
-                  style: GoogleFonts.glory(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                      color: Color(0xFF315F43)),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Find My Stuff",
-                  style: GoogleFonts.glory(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                      color: Color(0xFF315F43)),
-                )
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Terbaru",
-                  style: GoogleFonts.inter(
-                      fontSize: 14,
-                      color: Color(0xFF4C874F),
-                      fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 5),
-            child: SizedBox(height: 330, child: ListHorizontal()),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Kategori  >  Barang Hilang",
-                  style: GoogleFonts.inter(
-                      fontSize: 14,
-                      color: Color(0xFF4C874F),
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          ListVertical()
-        ]),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          _selectedIndexNotifier.value = index;
+        },
+        children: [Home(), List()],
+      ),
+      bottomNavigationBar: MyBottomNavBar(
+        selectedIndexNotifier: _selectedIndexNotifier,
+        pageController: _pageController,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.add,
+          size: 35,
+        ),
       ),
     );
   }
-
-  @override
-  State<DashboardView> createState() => DashboardController();
 }
