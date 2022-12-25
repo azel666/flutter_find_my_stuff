@@ -5,12 +5,21 @@ import 'package:page_transition/page_transition.dart';
 
 import 'module/Animations/fade_animations.dart';
 
-void main() => runApp(MaterialApp(
-    // ignore: unnecessary_new
-    theme: new ThemeData(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255)),
-    debugShowCheckedModeBanner: false,
-    home: HomePage()));
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(MaterialApp(
+      // ignore: unnecessary_new
+      theme: new ThemeData(
+          scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255)),
+      debugShowCheckedModeBanner: false,
+      home: HomePage()));
+}
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

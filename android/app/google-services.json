@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "204078814910",
+    "project_id": "find-my-stuff-3928c",
+    "storage_bucket": "find-my-stuff-3928c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204078814910:android:9cf92c5cc1c7fce77a30ef",
+        "android_client_info": {
+          "package_name": "com.example.flutter_find_my_stuff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204078814910-70hekk52fsnsk8h4ribl5rvb0jed2p0v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2tAWL0mr7h8dVEvKFnFSXsHWJUt93gbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204078814910-70hekk52fsnsk8h4ribl5rvb0jed2p0v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "204078814910-opjt8a2g50hho08g6vkbj19kum47m343.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterFindMyStuff"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
