@@ -21,7 +21,7 @@ class DashboardView extends StatefulWidget {
     final _selectedIndexNotifier = ValueNotifier<int>(0);
 
     final _pageController = PageController();
-
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 255, 255, 255),

@@ -9,17 +9,12 @@ class DashboardController extends State<DashboardView>
   static late DashboardController instance;
   late DashboardView view;
 
-  int _selectedIndex = 0;
-
-  void item_on_selected(index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  late var _selectedIndex;
 
   @override
   void initState() {
     instance = this;
+    _selectedIndex = 0;
     super.initState();
   }
 
