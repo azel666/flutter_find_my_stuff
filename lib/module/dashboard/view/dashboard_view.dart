@@ -5,8 +5,7 @@ import 'package:flutter_find_my_stuff/core.dart';
 import 'package:flutter_find_my_stuff/module/dashboard/widget/list_horizontal.dart';
 import '../controller/dashboard_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../widget/btn_home.dart';
-import '../widget/btn_list.dart';
+import 'home_view.dart';
 import '../widget/my_bottom_navbar.dart';
 
 class DashboardView extends StatefulWidget {
@@ -39,7 +38,7 @@ class DashboardView extends StatefulWidget {
         onPageChanged: (index) {
           _selectedIndexNotifier.value = index;
         },
-        children: [Home(), List()],
+        children: [Home(), ReportView()],
       ),
       bottomNavigationBar: MyBottomNavBar(
         selectedIndexNotifier: _selectedIndexNotifier,
@@ -47,7 +46,11 @@ class DashboardView extends StatefulWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return AddDataView();
+          }));
+        },
         child: Icon(
           Icons.add,
           size: 35,
