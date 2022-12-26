@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_find_my_stuff/state_util.dart';
 import '../view/dashboard_view.dart';
-import '../view/home.dart';
-import '../view/list.dart';
+import '../view/home_view.dart';
 
 class DashboardController extends State<DashboardView>
     implements MvcController {
